@@ -6,9 +6,14 @@ module.exports = {
         'common': '@/common',
         'components': '@/components',
         'network': '@/network',
-        'views': '@/views'
+        'views': '@/views',
+				'store': '@/store'
       }
     }
-  }
+  },
+	// 用于部署项目到Apache上
+	// publicPath : '/Demo/dist'
+	
+	// 用于部署到Tomcat
+		publicPath: './',
 }
-

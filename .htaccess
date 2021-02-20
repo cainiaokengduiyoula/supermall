@@ -1,0 +1,33 @@
+// 创建该文件添加以下代码解决在Apache刷新404问题
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+	// 
+  RewriteBase /Demo/dist/
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+	// 
+  RewriteRule /Demo/dist/index.html [L]
+</IfModule>
+
+
+// 其他电脑可以访问本机在apache上部署的项目
+在D:\wamp64\bin\apache\apache2.4.37\conf\httpd.conf中编辑
+修改代码
+<Directory "${INSTALL_DIR}/www/">
+	# Require local
+	Require all granted
+</Directory>
+添加代码
+<VirtualHost 192.168.3.155:8081>
+	DocumentRoot "d:/wamp64/www"
+</VirtualHost>
+<Directory />
+	order allow,deny
+	AllowOverride none
+	Allow from all
+    Require all granted
+</Directory>
+
+在其他机子输入 192.168.3.155:8081/Demo/dist/
+访问不了则在控制面板将本机的防火墙关闭

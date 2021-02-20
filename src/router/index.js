@@ -5,6 +5,7 @@ const Home = () => import('../views/home/Home')
 const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
+const Detail = () => import('../views/detail/Detail')
 
 // 1、安装插件
 Vue.use(VueRouter)
@@ -30,11 +31,25 @@ const routes = [
 	{
 	  path: '/profile',
 	  component: Profile
+	},
+	{
+		path: '/detail/:iid',
+		component: Detail,
+		meta: {
+			noShowNavBar : true
+		}
 	}
 ]
 const router = new VueRouter({
 	routes,
-	mode: 'history'
+	mode: 'history',
+	// 用于部署项目到Apache上
+	// base: '/Demo/dist',
+	
+	// 用于部署到Tomcat上
+	// 如打包文件存放在Tomcat/webapps/Demo/dist下，
+	// 那么base就这么写
+	//base: '/Demo/dist/',
 })
 
 // 3、导出对象

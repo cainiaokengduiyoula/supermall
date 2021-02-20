@@ -1,9 +1,7 @@
 <template>
-  <div class="wrapper" >
-		<ul>
-			<li>分类列表</li>
-		</ul>
-  </div>
+	<div>
+		<h2>当前只完成首页，购物车，商品详情页面</h2>
+	</div>
 </template>
 
 <script>

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <scroll class="content">
-     <ul>
-			 <li>个人信息</li>
-		 </ul>
-    </scroll>
+    <h2>当前只完成首页，购物车，商品详情页面</h2>
   </div>
 </template>
 
